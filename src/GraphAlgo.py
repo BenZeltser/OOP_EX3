@@ -1,9 +1,11 @@
+import array
 import itertools
 import json
 import random
 from typing import List
 from sys import maxsize
 from itertools import permutations
+from src import FloydWarshallAlgo
 
 import length as length
 
@@ -126,7 +128,12 @@ class GraphAlgo(GraphAlgoInterface):
     '''Center'''
 
     def centerPoint(self) -> (int, float):
-        pass
+        '''Here we will use the Floyd-Warshall algorithm
+            and we will return the minimum element'''
+        ans = FloydWarshallAlgo()
+        return ans
+
+
 
 
 
