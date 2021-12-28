@@ -24,16 +24,26 @@ class GraphAlgo(GraphAlgoInterface):
             with open(file_name, 'r') as f:
                 load = json.load(f)
                 '''Init graph instance'''
-                myGraph = DiGraph()
+                myGraph: DiGraph = DiGraph()
 
                 '''Iterate through nodes'''
                 for i in load['Nodes']:
-                    myGraph.add_node(node["id"])
+                    myGraph.add_node(i["id"])
 
+                '''Iterate through edges'''
+                for i in load['Edges']:
+                    myGraph.add_edge(i["src"],i["dst"],i["weight"])
 
-                pass
+                '''Attribute the graph'''
+                self.myGraph = myGraph
+
+                f.close()
         except:
             raise NotImplementedError
+        return True
+
     '''save'''
+    def save_to_json(self, file_name: str) -> bool:
+        pass
 
     '''Algorithms'''
