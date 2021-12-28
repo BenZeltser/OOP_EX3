@@ -13,3 +13,5 @@ class GraphAlgo(GraphAlgoInterface):
     '''save'''
 
     '''Algorithms'''
+
+    '''getter/setter'''
