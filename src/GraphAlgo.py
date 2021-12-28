@@ -93,7 +93,7 @@ class GraphAlgo(GraphAlgoInterface):
             raise NotImplementedError
 
 
-    '''Algorithms'''
+    '''******Algorithms******'''
 
 
     '''Shortest path - Implementation idea inspired by Wlliam Fiset '''
@@ -123,6 +123,10 @@ class GraphAlgo(GraphAlgoInterface):
             min_path = min(min_path, current_pathweight)
         return min_path
 
+    '''Center'''
+
+    def centerPoint(self) -> (int, float):
+        pass
 
 
 
