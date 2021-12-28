@@ -2,7 +2,6 @@ import random
 
 import null as null
 
-
 class node:
 
     def __init__(self,key,geoLocation):
@@ -25,5 +24,5 @@ class node:
 
 
     def __str__(self):
-        return str(self.id) + ' position: ' + str([p.id for p in self.adjacent])
+        return ('Key: '+str(self.key)+'\n'+'Geolocation'+str(self.geoLocation.x)+','+str(self.geoLocation.y))
 
