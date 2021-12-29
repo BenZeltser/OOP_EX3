@@ -8,3 +8,12 @@ class Edge:
 
     def __str__(self):
         return ('src: '+str(self.src)+'\n'+'dst'+str(self.dst)+'\n'+' weight:'+str(self.weight))
+
+    def getSRC(self):
+        return self.src
+
+    def getDST(self):
+        return self.dst
+
+    def getWeight(self):
+        return self.weight
