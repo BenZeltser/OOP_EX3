@@ -1,16 +1,13 @@
 import random
 
-import null as null
+#import null as null
 
-class node:
+class Node:
 
     def __init__(self,key,geoLocation):
         self.key = key
         '''Init neighbors'''
-        self.ancestors=0
-        self.children=0
-
-        if (geoLocation == null):
+        if (geoLocation == None):
             '''place x,y in the field of existing range'''
             x=random.uniform(35,36)
             y=random.uniform(32,33)
@@ -18,6 +15,8 @@ class node:
             geoLocation = (x,y,0)
             '''Once finished Initialization we will attribute it'''
             self.geoLocation = geoLocation
+        else:
+            self.geolocation=geoLocation
 
 
 

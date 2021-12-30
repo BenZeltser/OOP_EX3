@@ -7,7 +7,6 @@ from sys import maxsize
 from itertools import permutations
 from src import FloydWarshallAlgo
 
-import length as length
 
 from src.GraphInterface import GraphInterface
 from src.GrapthAlgoInterface import GraphAlgoInterface
