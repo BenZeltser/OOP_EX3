@@ -19,9 +19,7 @@ class GraphAlgo(GraphAlgoInterface):
 
     '''Constructor'''
 
-    def __init__(self, myGraph):
-        myGraph = DiGraph()
-        self.myGraph = myGraph
+    def __init__(self):
         '''New Graph'''
 
     '''Get'''
