@@ -133,7 +133,8 @@ class GraphAlgo(GraphAlgoInterface):
         return ans
 
     '''Plot Graph'''
-
+    def plot_graph(self) -> None:
+        pass
 
 
 

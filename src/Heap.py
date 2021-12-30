@@ -1,3 +1,6 @@
+from src import DiGraph
+
+
 def get_parent(pos):
     return (pos + 1) // 2 - 1
 
@@ -67,10 +70,17 @@ def backtrack(best_parents, start, end):
         path.append(cursor)
         if cursor == start:
             return list(reversed(path))
-    return None
 
 
-def dijkstra(weighted_graph, start, end):
+def dijkstra(weighted_graph: DiGraph, start, end):
+    dict_nodes = weighted_graph.get_all_v()
+    print(type(dict_nodes))
+    nodes = []
+
+
+    for i in dict_nodes:
+        nodes += dict_nodes.get(i)
+
     """
     Calculate the shortest path for a directed weighted graph.
 
@@ -82,11 +92,14 @@ def dijkstra(weighted_graph, start, end):
     :return: ["START", ... nodes between ..., "END"] or None, if there is no
             path
     """
-    distances = {i: float("inf") for i in weighted_graph}
-    best_parents = {i: None for i in weighted_graph}
+    distances = {i: float("inf") for i in nodes}
+    best_parents = {i: None for i in nodes}
 
     to_visit = Heap()
-    to_visit.add((0, start))
+
+    for i in nodes:
+        to_visit.add((nodes.get(i).key))
+
     distances[start] = 0
 
     visited = set()
@@ -98,10 +111,10 @@ def dijkstra(weighted_graph, start, end):
         if source == end:
             break
         visited.add(source)
-        for target, distance in weighted_graph[source].items():
+        for target, distance in nodes[source].items():
             if target in visited:
                 continue
-            new_dist = distances[source] + weighted_graph[source][target]
+            new_dist = distances[source] + nodes[source][target]
             if distances[target] > new_dist:
                 distances[target] = new_dist
                 best_parents[target] = source
