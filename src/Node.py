@@ -1,7 +1,5 @@
 import random
 
-#import null as null
-
 class Node:
 
     def __init__(self,key,geoLocation):

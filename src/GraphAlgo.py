@@ -6,6 +6,7 @@ from typing import List
 from sys import maxsize
 from itertools import permutations
 from src import FloydWarshallAlgo
+import matplotlib.pyplot as plt
 
 
 from src.GraphInterface import GraphInterface
@@ -136,10 +137,15 @@ class GraphAlgo(GraphAlgoInterface):
 
     '''Plot Graph'''
     def plot_graph(self) -> None:
-        pass
+        nodeDict =self.myGraph.get_all_v()
+        nodeList=[]
+        edgeList=self.myGraph.get_edges()
+        for x in range(len(nodeDict)):
+            nodeList[x]=nodeDict[x]
 
-
-
+        plt.plot(nodeList, edgeList)
+        plt.plot(nodeList,edgeList , 'ro')
+        plt.show()
 
 
 
