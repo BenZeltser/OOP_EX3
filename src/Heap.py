@@ -1,3 +1,5 @@
+from typing import List
+
 from src import DiGraph
 
 
@@ -77,9 +79,10 @@ def dijkstra(weighted_graph: DiGraph, start, end):
     print(type(dict_nodes))
     nodes = []
 
-
-    for i in dict_nodes:
-        nodes += dict_nodes.get(i)
+    size = len(dict_nodes)
+    for i in range(0,size):
+        print(type(dict_nodes.get(i)))
+        nodes.append(dict_nodes.get(i))
 
     """
     Calculate the shortest path for a directed weighted graph.
@@ -96,9 +99,17 @@ def dijkstra(weighted_graph: DiGraph, start, end):
     best_parents = {i: None for i in nodes}
 
     to_visit = Heap()
-
+    print(type(to_visit))
     for i in nodes:
-        to_visit.add((nodes.get(i).key))
+        print("TYPETYPETYPETYPETYPETYPE")
+        print(type(nodes))
+        print(type(nodes[i]))
+        print(type(nodes[i]))
+        print(type(nodes[i]))
+        print(type(nodes[i]))
+        print(type(nodes[i]))
+
+        #to_visit.add((nodes[i]))
 
     distances[start] = 0
 
