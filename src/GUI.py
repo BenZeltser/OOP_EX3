@@ -13,8 +13,8 @@ window.title("Gui for guys")
 lbl = Label(window, text ="Hello")
 lbl.grid(row = 3, column = 2)
 
-but = Button(window, text = "Press", width  = 10, command = func)
-but.grid(row = 1, column = 4)
+#but = Button(window, text = "Press", width  = 10, command = func)
+#but.grid(row = 1, column = 4)
 
 txt = StringVar()
 ent = Entry(window, width = 10, textvariable = txt)

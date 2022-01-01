@@ -139,12 +139,17 @@ class GraphAlgo(GraphAlgoInterface):
     def plot_graph(self) -> None:
         nodeDict =self.myGraph.get_all_v()
         nodeList=[]
-        edgeList=self.myGraph.get_edges()
         for x in range(len(nodeDict)):
-            nodeList[x]=nodeDict[x]
+            nodeList.append(nodeDict[x])
 
-        plt.plot(nodeList, edgeList)
-        plt.plot(nodeList,edgeList , 'ro')
+        X=[]
+        Y=[]
+        for x in range(len(nodeList)):
+            X.append(nodeList[x].getX())
+            Y.append(nodeList[x].getY())
+
+        plt.plot(X,Y )
+        plt.plot(X,Y ,'ro')
         plt.show()
 
 
