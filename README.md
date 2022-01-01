@@ -53,13 +53,16 @@ The center (or Jordan center) of a graph is the set of all vertices of minimum e
 
 #### *Also can be found within the Page's Wiki.*
 
-We tested how the program and it's different Algorithms perform on different Graphs and gaethered the results: 
+#### We tested how the program and it's different Algorithms perform on different Graphs and gaethered the results:
 
-| Graph         | Time          | Cool  |
-| ------------- |:-------------:| -----:|
-| A1            | right-aligned | $1600 |
-| A2            | centered      |   $12 |
-| A3            | are neat      |    $1 |
-| A4            | right-aligned | $1600 |
-| A5            | centered      |   $12 |
-| A6            | are neat      |    $1 |
+### (Time in MiliSeconds)
+
+| Graph         | Get_graph     | Load  |Save |Shortest Path		  |	TSP	|Center| Plot|
+| ------------- |:-------------:| -----:|----:|------------------:|----:|-----:|----:|	
+| A1            | right-aligned | $1600 |		  |		                |		  |		   |     |
+| A2            | centered      |   $12 |		  |		                |		  |		   |     |
+| A3            | are neat      |    $1 |		  |		                |		  |		   |     |
+| A4            | right-aligned | $1600 |		  |		                |		  |		   |     |
+| A5            | centered      |   $12 |		  |		                |		  |		   |     |
+| A6            | are neat      |    $1 |		  |		                |		  |		   |     |
+|               |               |       |		  |		                |		  |		   |     |
