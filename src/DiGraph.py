@@ -4,7 +4,7 @@ from Edge import Edge
 from Node import Node
 
 
-class DiGraph:
+class DiGraph():
 
     def __init__(self):
         self.nodes = {}
