@@ -2,10 +2,10 @@ import json
 import GraphInterface
 from Edge import Edge
 from Node import Node
-
+import time
 
 class DiGraph():
-
+    start = time.time()
     def __init__(self):
         self.nodes = {}
         self.edges = []
@@ -78,13 +78,9 @@ class DiGraph():
         self.mc += 1
         return True
 
-    #this function retruns all the edges in the graph
     def get_edges(self):
         return self.edges
 
-
-
-    #this function checks is an edge is already in the edge list and return True if it is
     def checkEdge(self, id1: int, id2: int) -> int:
         if len(self.edges) != 0:
             for x in range(len(self.edges)):

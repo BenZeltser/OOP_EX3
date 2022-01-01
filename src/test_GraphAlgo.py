@@ -102,3 +102,13 @@ class Test(TestCase):
 
         algo.plot_graph()
 
+    def timeTest(self):
+        A0= "data/A0.json"
+        A1 = "data/A1.json"
+        A2 = "data/A2.json"
+        A3 = "data/A3.json"
+        A4 = "data/A4.json"
+        A5 = "data/A5.json"
+        A6 = "data/A6.json"
+
+

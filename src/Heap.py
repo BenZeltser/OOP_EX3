@@ -1,5 +1,5 @@
 from typing import List
-
+import time
 from src import DiGraph
 
 

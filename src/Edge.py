@@ -1,3 +1,5 @@
+import time
+
 class Edge:
 
     def __init__(self, src,dst,weight):

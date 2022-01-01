@@ -20,7 +20,7 @@ txt = StringVar()
 ent = Entry(window, width = 10, textvariable = txt)
 ent.grid(row = 1, column = 1)
 
-with open(r"C:\Users\Tomer\PycharmProjects\OOP_EX3\data\A0.json", 'r') as f:
+with open("data/A1.json", 'r') as f:
     data = json.loads(f.read())
 
 
@@ -29,7 +29,7 @@ d =  {
       "id": 0
     }
 
-with open(r"C:\Users\Tomer\PycharmProjects\OOP_EX3\data\A6.json", 'w') as f:
+with open("data/A1.json", 'w') as f:
     json.dump(d, f, indent = 0)
     json.dump(d, f, indent = 1)
 

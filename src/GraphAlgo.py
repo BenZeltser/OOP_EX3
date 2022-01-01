@@ -1,3 +1,5 @@
+import time
+
 import array
 import errno
 import itertools
@@ -6,9 +8,12 @@ import random
 from typing import List
 from sys import maxsize
 from itertools import permutations
+
+from matplotlib import pyplot as plt
+
 from src import FloydWarshallAlgo
 import DiGraph
-
+start = time.time()
 
 from src.GraphInterface import GraphInterface
 from src.GrapthAlgoInterface import GraphAlgoInterface
@@ -18,24 +23,29 @@ from src.Heap import Heap, dijkstra
 '''Graph Algo class implements GraphAlgoInterface'''
 
 class GraphAlgo(GraphAlgoInterface):
-
+    start = time.time()
     '''Constructor'''
 
     def __init__(self, myGraph: DiGraph = DiGraph()):
         '''New Graph'''
         self.myGraph = myGraph
+        print(start-time.time())
 
 
 
     '''Get'''
 
     def get_graph(self) -> GraphInterface:
+        start = time.time()
         return self.myGraph
+        print(get)
+        print(start - time.time())
 
     '''Load'''
 
     def load_from_json(self, file_name: str) -> bool:
         try:
+            start = time.time()
             '''Open file as read'''
             with open(file_name, 'r') as f:
                 load = json.load(f)
@@ -57,13 +67,16 @@ class GraphAlgo(GraphAlgoInterface):
                 f.close()
         except:
             return errno
+        print("load")
+        print(start - time.time())
         return True
 
     '''Save'''
 
     def save_to_json(self, file_name: str) -> bool:
-        try:
 
+        try:
+            start = time.time()
             '''Create Dict parameters (dynamic ds)'''
             jdict = {'Edges': [], 'Nodes': []}
 
@@ -92,6 +105,8 @@ class GraphAlgo(GraphAlgoInterface):
                 f.write(out)
 
                 '''-> Condit'''
+                print("save:")
+                print(start - time.time())
                 return True
 
         except:
@@ -104,6 +119,7 @@ class GraphAlgo(GraphAlgoInterface):
     '''Shortest path - Implementation idea inspired by Wlliam Fiset '''
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
+        start = time.time()
         myGraph = self.myGraph
         if (dijkstra(myGraph,id1,id2)) is None:
             return [float('inf'),float('inf')]
@@ -113,6 +129,7 @@ class GraphAlgo(GraphAlgoInterface):
     '''TSP'''
 
     def TSP(self, node_lst: List[int]) -> (List[int], float):
+        start = time.time()
         myGraph = self.myGraph
         size = len(node_lst)
         vertex = []
@@ -137,11 +154,14 @@ class GraphAlgo(GraphAlgoInterface):
             else:
                 current_pathweight += myGraph.get_all_v().get(k).key
             min_path = min(min_path, current_pathweight)
+        print("Shortest Path")
+        print(start - time.time())
         return min_path
 
     '''Center'''
 
     def centerPoint(self) -> (int, float):
+        start = time.time()
         '''Here we will use the Floyd-Warshall algorithm
             and we will return the minimum element'''
         nodeKeys = []
@@ -154,11 +174,22 @@ class GraphAlgo(GraphAlgoInterface):
             edgeKeys.append(edge.src)
         ans = FloydWarshallAlgo.floyd_warshall(len(nodeKeys),len(edgeKeys))
 
+        print("Center")
+        print(start - time.time())
         return ans
 
     '''Plot Graph'''
     def plot_graph(self) -> None:
-        pass
+        X = []
+        Y = []
+        all_nodes = self.myGraph.get_all_v()
+        for x in range(len(self.myGraph.get_all_v())):
+            node = all_nodes[x]
+            X.append(node.getX())
+            Y.append(node.getY())
+        plt.plot(X, Y)
+        plt.plot(X, Y, 'ro')
+        plt.show()
 
 
 

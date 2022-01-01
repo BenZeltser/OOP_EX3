@@ -1,3 +1,5 @@
+import time
+
 from math import inf
 from itertools import product
 from random import random
