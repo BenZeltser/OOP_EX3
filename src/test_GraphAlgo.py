@@ -34,6 +34,7 @@ class Test(TestCase):
         myGraphAlgo = GraphAlgo(myGraph)
         myGraphAlgo.get_graph()
         graph = myGraphAlgo.get_graph()
+        graph.get_all_v()
         self.assertEqual(myGraph,graph)
         myGraphAlgo.get_graph().add_node(15,1)
         myGraphAlgo.get_graph().add_edge(1,2,3.0)
