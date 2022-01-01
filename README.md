@@ -15,14 +15,20 @@
 #### by implementing the ideas the principles that we learn in the Object oriented programming course.
 #### The program will present a Directed weighted graph using a Json file that speficies it's nodes and edges and it's  Geographical coordinates.
 
-
+****
 
 ### For further Information regarding the program features see the page's [Wiki](https://github.com/BenZeltser/OOP_EX3/wiki)
 
+****
 
 ## Program Structure 🏗️
 
 the program is completely Python based. the different classes and Interfaces and how they interact with each other is well obliged to have an amended explanation using a [UML Diagram](https://he.wikipedia.org/wiki/Unified_Modeling_Language)
+
+### UML Diagram: 
+
+![UML](https://user-images.githubusercontent.com/92685838/147857995-c4b165a0-113f-4df3-96e7-7dc65e1a2f5d.jpg)
+
 
 ## Algorithms 🌀
 
@@ -42,3 +48,11 @@ The problem is a famous NP-hard problem. There is no polynomial-time known solut
 #### Graph center - 
 
 The center (or Jordan center) of a graph is the set of all vertices of minimum eccentricity, that is, the set of all vertices u where the greatest distance d(u,v) to other vertices v is minimal. Equivalently, it is the set of vertices with eccentricity equal to the graph's radius. Thus vertices in the center (central points) minimize the maximal distance from other points in the graph.
+
+## Performance ⏲️
+
+#### *Also can be found within the Page's Wiki.*
+
+We tested how the program and it's different Algorithms perform on different Graphs and gaethered the results: 
+
+
