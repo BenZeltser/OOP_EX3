@@ -5,11 +5,12 @@ import sys
 import heapq as heapQueue
 
 from src.DiGraph import DiGraph
+from src.Node import Node
 
 '''Idea inspired by the way of DR. William Fiset - GitHub & Youtube'''
 def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
     maxVal = sys.maxsize #Max_value
-    distance_list = {node: maxVal for node in myGraph.get_all_v()}
+    distance_list = {Node: maxVal for Node in myGraph.get_all_v()}
 
     distance_list[src] = 0
     prev_nodes = {src: maxVal}
@@ -31,6 +32,7 @@ def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
                 heapQueue.heappush(NodeQueued, (distance_list[i], i))
             if curr_node == dest:
                 break
+
     if distance_list[dest] == maxVal:
         return float('inf'), []
     backTrack = []
