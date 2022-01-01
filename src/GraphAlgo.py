@@ -90,7 +90,8 @@ class GraphAlgo(GraphAlgoInterface):
                 return True
 
         except:
-            raise NotImplementedError
+            # raise NotImplementedError
+            print("Error")
 
 
     '''******Algorithms******'''
