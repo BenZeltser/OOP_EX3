@@ -57,12 +57,4 @@ The center (or Jordan center) of a graph is the set of all vertices of minimum e
 
 ### (Time in MiliSeconds)
 
-| Graph         | Get_graph     | Load  |Save |Shortest Path		  |	TSP	|Center| Plot|
-| ------------- |:-------------:| -----:|----:|------------------:|----:|-----:|----:|	
-| A1            | right-aligned | $1600 |		  |		                |		  |		   |     |
-| A2            | centered      |   $12 |		  |		                |		  |		   |     |
-| A3            | are neat      |    $1 |		  |		                |		  |		   |     |
-| A4            | right-aligned | $1600 |		  |		                |		  |		   |     |
-| A5            | centered      |   $12 |		  |		                |		  |		   |     |
-| A6            | are neat      |    $1 |		  |		                |		  |		   |     |
-|               |               |       |		  |		                |		  |		   |     |
+![image](https://user-images.githubusercontent.com/92685838/147859716-f9c16787-b5a5-43f8-8f64-cdefa259495a.png)
