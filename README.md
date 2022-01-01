@@ -25,6 +25,11 @@
 
 the program is completely Python based. the different classes and Interfaces and how they interact with each other is well obliged to have an amended explanation using a [UML Diagram](https://he.wikipedia.org/wiki/Unified_Modeling_Language)
 
+### UML Diagram: 
+
+![UML](https://user-images.githubusercontent.com/92685838/147857995-c4b165a0-113f-4df3-96e7-7dc65e1a2f5d.jpg)
+
+
 ## Algorithms 🌀
 
 #### Dijkstra's algorithm - 
