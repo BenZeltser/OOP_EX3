@@ -3,6 +3,7 @@ from itertools import product
 from random import random
 
 def floyd_warshall(n, edge):
+
     u=v=w=k=i=j=0
     rn = range(n)
     dist = [[inf] * n for i in rn]

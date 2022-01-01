@@ -9,6 +9,7 @@ from src.Node import Node
 
 '''Idea inspired by the way of DR. William Fiset - GitHub & Youtube'''
 def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
+
     maxVal = sys.maxsize #Max_value
     distance_list = {Node: maxVal for Node in myGraph.get_all_v()}
 
