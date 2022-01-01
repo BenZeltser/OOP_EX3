@@ -5,13 +5,17 @@ import random
 from typing import List
 from sys import maxsize
 from itertools import permutations
+
+from _distutils_hack import override
+
 from src import FloydWarshallAlgo
-
-
+from src import Dijkestra
+import sys
 from src.GraphInterface import GraphInterface
 from src.GrapthAlgoInterface import GraphAlgoInterface
 from src.DiGraph import DiGraph
 from src.Heap import Heap, dijkstra
+import heapq as heapQueue
 
 '''Graph Algo class implements GraphAlgoInterface'''
 
@@ -21,10 +25,7 @@ class GraphAlgo(GraphAlgoInterface):
 
     def __init__(self):
         '''New Graph'''
-
-    def __init__(self, myGraph: DiGraph):
-        '''New Graph'''
-        self.myGraph = myGraph
+        self.myGraph = DiGraph()
 
     '''Get'''
 
@@ -101,9 +102,47 @@ class GraphAlgo(GraphAlgoInterface):
 
     '''Shortest path - Implementation idea inspired by Wlliam Fiset '''
 
+    def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
+        maxVal = sys.maxsize  # Max_value
+        distance_list = {node: maxVal for node in myGraph.get_all_v()}
+
+        distance_list[src] = 0
+        prev_nodes = {src: maxVal}
+        NodeQueued = []
+        heapQueue.heappush(NodeQueued, (0, src))
+
+        while NodeQueued:
+            curr_node = heapQueue.heappop(NodeQueued)[1]
+
+            if distance_list[curr_node] == maxVal: break
+            edges = myGraph.all_out_edges_of_node(curr_node)
+            # Approximated Nodes thy neighbor
+            for i in edges.keys():
+                new_path = distance_list[curr_node] + edges.get(i)
+                if new_path < distance_list[i]:
+                    distance_list[i] = new_path
+                    prev_nodes[i] = curr_node
+                    heapQueue.heappush(NodeQueued, (distance_list[i], i))
+                if curr_node == dest:
+                    break
+        if distance_list[dest] == maxVal:
+            return float('maxVal'), []
+        backTrack = []
+        curr_node = dest
+
+        while curr_node != src:
+            backTrack.insert(0, curr_node)
+            curr_node = prev_nodes[curr_node]
+
+            # Check the backtrack trace
+        if backTrack:
+            backTrack.insert(0, curr_node)
+        return (distance_list[dest] / 1.0, backTrack)
+
+
     def shortest_path(self, id1: int, id2: int) -> (float, list):
-        myGraph = self.myGraph
-        return dijkstra(myGraph,id1,id2)
+        myGraph = self.get_graph()
+        return Dijkestra.Dijkstra(myGraph,id1,id2)
 
     '''TSP'''
 
