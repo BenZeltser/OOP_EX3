@@ -55,4 +55,11 @@ The center (or Jordan center) of a graph is the set of all vertices of minimum e
 
 We tested how the program and it's different Algorithms perform on different Graphs and gaethered the results: 
 
-
+| Graph         | Time          | Cool  |
+| ------------- |:-------------:| -----:|
+| A1            | right-aligned | $1600 |
+| A2            | centered      |   $12 |
+| A3            | are neat      |    $1 |
+| A4            | right-aligned | $1600 |
+| A5            | centered      |   $12 |
+| A6            | are neat      |    $1 |
