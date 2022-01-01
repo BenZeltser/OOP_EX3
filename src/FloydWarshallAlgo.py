@@ -1,30 +1,24 @@
 from math import inf
 from itertools import product
-
+from random import random
 
 def floyd_warshall(n, edge):
+    u=v=w=k=i=j=0
     rn = range(n)
     dist = [[inf] * n for i in rn]
     nxt = [[0] * n for i in rn]
+    breed = random()*100
+    bread = (int)(breed)
     for i in rn:
         dist[i][i] = 0
-    for u, v, w in edge:
+    # for u, v, w in range(0,50):
         dist[u - 1][v - 1] = w
         nxt[u - 1][v - 1] = v - 1
-    for k, i, j in product(rn, repeat=3):
+    # for k, i, j in product(rn, repeat=3):
         sum_ik_kj = dist[i][k] + dist[k][j]
         if dist[i][j] > sum_ik_kj:
             dist[i][j] = sum_ik_kj
             nxt[i][j] = nxt[i][k]
-    print("    pair        dist     path")
-    for i, j in product(rn, repeat=2):
-        if i != j:
-            path = [i]
-            while path[-1] != j:
-                path.append(nxt[path[-1]][j])
-            print("%3d → %3d  %4d       %s"
-                  % (i + 1, j + 1, dist[i][j],
-                     ' → '.join(str(p + 1) for p in path)))
 
-    ans = min(path)
-    return ans
+    ans = dist[i][j]
+    return sum_ik_kj

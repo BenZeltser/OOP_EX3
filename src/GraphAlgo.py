@@ -1,4 +1,5 @@
 import array
+import errno
 import itertools
 import json
 import random
@@ -6,6 +7,7 @@ from typing import List
 from sys import maxsize
 from itertools import permutations
 from src import FloydWarshallAlgo
+import DiGraph
 
 
 from src.GraphInterface import GraphInterface
@@ -19,9 +21,11 @@ class GraphAlgo(GraphAlgoInterface):
 
     '''Constructor'''
 
-    def __init__(self):
+    def __init__(self, myGraph: DiGraph = DiGraph()):
         '''New Graph'''
-        self.myGraph = DiGraph()
+        self.myGraph = myGraph
+
+
 
     '''Get'''
 
@@ -40,7 +44,8 @@ class GraphAlgo(GraphAlgoInterface):
 
                 '''Iterate through nodes'''
                 for i in load['Nodes']:
-                    myGraph.add_node(i["id"])
+                    if "pos" not in i:
+                        myGraph.add_node(i["id"])
 
                 '''Iterate through edges'''
                 for i in load['Edges']:
@@ -51,7 +56,7 @@ class GraphAlgo(GraphAlgoInterface):
 
                 f.close()
         except:
-            raise NotImplementedError
+            return errno
         return True
 
     '''Save'''
@@ -90,8 +95,7 @@ class GraphAlgo(GraphAlgoInterface):
                 return True
 
         except:
-            # raise NotImplementedError
-            print("Error")
+            return errno
 
 
     '''******Algorithms******'''
@@ -101,7 +105,10 @@ class GraphAlgo(GraphAlgoInterface):
 
     def shortest_path(self, id1: int, id2: int) -> (float, list):
         myGraph = self.myGraph
-        return dijkstra(myGraph,id1,id2)
+        if (dijkstra(myGraph,id1,id2)) is None:
+            return [float('inf'),float('inf')]
+        else:
+            return dijkstra(myGraph,id1,id2)
 
     '''TSP'''
 
@@ -111,16 +118,25 @@ class GraphAlgo(GraphAlgoInterface):
         vertex = []
         i=0
         while(i<size):
+                print(i)
                 vertex.append(i)
+                i = i + 1
         min_path = maxsize
         next_permutation = permutations(vertex)
+
         for i in next_permutation:
             current_pathweight = 0
             k = size
             for j in i:
-                current_pathweight += myGraph[k][j]
+                if (myGraph.get_all_v().get(j) is None):
+                    current_pathweight = current_pathweight+0
+                else:
+                    current_pathweight += myGraph.get_all_v().get(j).key
                 k = j
-            current_pathweight += myGraph[k][size]
+            if (myGraph.get_all_v().get(k) is None):
+                current_pathweight = current_pathweight+0
+            else:
+                current_pathweight += myGraph.get_all_v().get(k).key
             min_path = min(min_path, current_pathweight)
         return min_path
 
@@ -129,7 +145,19 @@ class GraphAlgo(GraphAlgoInterface):
     def centerPoint(self) -> (int, float):
         '''Here we will use the Floyd-Warshall algorithm
             and we will return the minimum element'''
-        ans = FloydWarshallAlgo()
+        nodeKeys = []
+        edgeKeys = []
+        n = self.myGraph.get_all_v().__sizeof__()
+        e = self.myGraph.get_edges().__sizeof__()
+        print("size")
+        print(e)
+        print(n)
+        for i in range(0,n):
+            nodeKeys.append(self.myGraph.get_all_v().get(i))
+        for edge in self.myGraph.get_edges():
+            edgeKeys.append(edge.src)
+        ans = FloydWarshallAlgo.floyd_warshall(len(nodeKeys),len(edgeKeys))
+
         return ans
 
     '''Plot Graph'''

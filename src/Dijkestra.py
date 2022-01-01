@@ -45,4 +45,7 @@ def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
         #Check the backtrack trace
     if backTrack:
         backTrack.insert(0, curr_node)
-    return (distance_list[dest] / 1.0,backTrack)
+    if (distance_list[dest] / 1.0,backTrack) is None:
+        print("No Path")
+    else:
+        return (distance_list[dest] / 1.0,backTrack)
