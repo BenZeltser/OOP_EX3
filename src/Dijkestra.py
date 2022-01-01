@@ -47,6 +47,6 @@ def Dijkstra(myGraph: DiGraph, src: int, dest: int) -> (float, list):
     if backTrack:
         backTrack.insert(0, curr_node)
     if (distance_list[dest] / 1.0,backTrack) is None:
-        print("No Path")
+        return {0}
     else:
         return (distance_list[dest] / 1.0,backTrack)

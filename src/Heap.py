@@ -76,12 +76,10 @@ def backtrack(best_parents, start, end):
 
 def dijkstra(weighted_graph: DiGraph, start, end):
     dict_nodes = weighted_graph.get_all_v()
-    print(type(dict_nodes))
     nodes = []
 
     size = len(dict_nodes)
     for i in range(0,size):
-        print(type(dict_nodes.get(i)))
         nodes.append(dict_nodes.get(i))
 
     """
@@ -99,17 +97,6 @@ def dijkstra(weighted_graph: DiGraph, start, end):
     best_parents = {i: None for i in nodes}
 
     to_visit = Heap()
-    print(type(to_visit))
-    for i in nodes:
-        print("TYPETYPETYPETYPETYPETYPE")
-        print(type(nodes))
-        print(type(nodes[i]))
-        print(type(nodes[i]))
-        print(type(nodes[i]))
-        print(type(nodes[i]))
-        print(type(nodes[i]))
-
-        #to_visit.add((nodes[i]))
 
     distances[start] = 0
 

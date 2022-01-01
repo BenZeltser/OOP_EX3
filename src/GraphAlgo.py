@@ -118,7 +118,6 @@ class GraphAlgo(GraphAlgoInterface):
         vertex = []
         i=0
         while(i<size):
-                print(i)
                 vertex.append(i)
                 i = i + 1
         min_path = maxsize
@@ -149,9 +148,6 @@ class GraphAlgo(GraphAlgoInterface):
         edgeKeys = []
         n = self.myGraph.get_all_v().__sizeof__()
         e = self.myGraph.get_edges().__sizeof__()
-        print("size")
-        print(e)
-        print(n)
         for i in range(0,n):
             nodeKeys.append(self.myGraph.get_all_v().get(i))
         for edge in self.myGraph.get_edges():

@@ -71,7 +71,6 @@ class DiGraph():
 
     def remove_edge(self, node_id1: int, node_id2: int) -> bool:
         location = self.checkEdge(node_id1, node_id2)
-        print(location)
         if location == -1:
             return False
         tempEdge=self.edges[location]

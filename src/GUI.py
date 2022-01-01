@@ -33,10 +33,10 @@ with open(r"C:\Users\Tomer\PycharmProjects\OOP_EX3\data\A6.json", 'w') as f:
     json.dump(d, f, indent = 0)
     json.dump(d, f, indent = 1)
 
-print(data)
 Edges = [x for x in data['Edges']]
 for y in Edges:
-    print(y['src'], y['w'], y['dest'])
+    pass
+    # print(y['src'], y['w'], y['dest'])
 Nodes = [x for x in data['Nodes']]
 # Nodes = []
 # for x in data['Nodes']:
@@ -45,21 +45,22 @@ Nodes = [x for x in data['Nodes']]
 X = []
 Y = []
 for y in Nodes:
-    print(y['pos'], y['pos'].split(','))
+    pass
+    # print(y['pos'], y['pos'].split(','))
     d = y['pos'].split(',')
     X.append(float(d[0]))
     Y.append(float(d[1]))
     print(y['id'])
 
-print("------- X ----------------")
-print(X)
-print("------- X ----------------")
-print("------- Y ----------------")
-print(Y)
-print("------- Y ----------------")
-
-print(Edges)
-print(Nodes)
+# print("------- X ----------------")
+# print(X)
+# print("------- X ----------------")
+# print("------- Y ----------------")
+# print(Y)
+# print("------- Y ----------------")
+#
+# print(Edges)
+# print(Nodes)
 
 plt.plot(X, Y, 'ro')
 plt.show()
@@ -68,4 +69,4 @@ window.mainloop()
 
 d = {}
 d['2'] = "Hello"
-print(d)
+# print(d)
