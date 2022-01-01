@@ -1,7 +1,5 @@
 import random
 
-#import null as null
-
 class Node:
 
     def __init__(self,key,geoLocation):
@@ -25,3 +23,12 @@ class Node:
     def __str__(self):
         return ('Key: '+str(self.key)+'\n'+'Geolocation'+str(self.geoLocation.x)+','+str(self.geoLocation.y))
 
+
+    def getX(self):
+        return self.geoLocation[0]
+
+    def getY(self):
+        return self.geoLocation[1]
+
+    def getZ(self):
+        return 0
